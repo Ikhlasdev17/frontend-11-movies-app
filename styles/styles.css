@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Titillium Web", sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  background-image: url("https://i.pinimg.com/originals/35/10/dd/3510dd2165a9565fb72762b2ea441f18.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.wrapper {
+  width: 80%;
+  max-height: 80vh;
+  margin: 10vh auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 4px;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  overflow-y: auto;
+  position: relative;
+}
+.wrapper-header {
+  display: flex;
+  gap: 10px;
+}
+.wrapper-header .favourite-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  background-color: #222;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 4px;
+  position: relative;
+}
+.wrapper-header .favourite-btn i {
+  font-size: 24px;
+  color: gold;
+}
+.wrapper-header .favourite-btn span {
+  position: absolute;
+  background-color: green;
+  padding: 0 5px;
+  border-radius: 4px;
+  color: white;
+  top: -3px;
+  right: -3px;
+  font-size: 10px;
+}
+.wrapper form {
+  width: 100%;
+  background-color: #222;
+  border-radius: 4px;
+}
+.wrapper form input {
+  padding: 7px 12px;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 22px;
+  color: white;
+}
+.wrapper .movies,
+.wrapper .basket-movies-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+  margin: 20px 0;
+}
+.wrapper .movies .card,
+.wrapper .basket-movies-content .card {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #222;
+}
+.wrapper .movies .card img,
+.wrapper .basket-movies-content .card img {
+  width: 100%;
+  border-radius: 4px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.wrapper .movies .card-body-header,
+.wrapper .basket-movies-content .card-body-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.wrapper .movies .card-body-header button,
+.wrapper .basket-movies-content .card-body-header button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.wrapper .movies .card-body-header button i,
+.wrapper .basket-movies-content .card-body-header button i {
+  font-size: 20px;
+  color: gold;
+}
+.wrapper .movies .card-body-header button i.animate,
+.wrapper .basket-movies-content .card-body-header button i.animate {
+  animation-name: animate-btn;
+  animation-duration: 400ms;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+}
+.wrapper .movies .card-body h3,
+.wrapper .basket-movies-content .card-body h3 {
+  color: white;
+}
+.wrapper .movies .card-body .movie-info,
+.wrapper .basket-movies-content .card-body .movie-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
+.wrapper .movies .card-body .movie-info h4,
+.wrapper .basket-movies-content .card-body .movie-info h4 {
+  color: dodgerblue;
+}
+.wrapper .basket-movies {
+  position: fixed;
+  background-color: #222;
+  inset: 0;
+  display: none;
+  width: 80%;
+  height: 80vh;
+  top: 10vh;
+  left: 10%;
+}
+.wrapper .basket-movies.active {
+  display: block;
+}
+.wrapper .basket-movies .basket-header {
+  width: 100%;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+}
+.wrapper .basket-movies .basket-header h1 {
+  color: white;
+}
+.wrapper .basket-movies .basket-header button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.wrapper .basket-movies .basket-header button i {
+  font-size: 26px;
+  color: white;
+}
+.wrapper .basket-movies .basket-movies-content {
+  padding: 10px 30px;
+  height: 80%;
+  overflow-y: auto;
+  align-items: flex-start;
+}
+.wrapper .basket-movies .basket-movies-content .card {
+  background-color: #333;
+}
+.wrapper .basket-movies .emtpy-basket {
+  position: absolute;
+  top: 100px;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+}
+.wrapper .basket-movies .emtpy-basket.active {
+  display: block;
+}
+.wrapper .basket-movies .emtpy-basket h2 {
+  color: white;
+  margin-top: 150px;
+}
+.wrapper .basket-movies .emtpy-basket h1 {
+  color: rgba(255, 255, 255, 0.1);
+  font-size: 15vw;
+  margin-top: -200px;
+}
+
+@keyframes animate-btn {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.2);
+  }
+  70% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@media screen and (max-width: 768px) {
+  .wrapper,
+  .wrapper .basket-movies {
+    width: 100%;
+    max-height: 100vh;
+    height: 100vh;
+    margin: 0;
+  }
+  .wrapper .basket-movies {
+    inset: 0;
+  }
+}/*# sourceMappingURL=styles.css.map */

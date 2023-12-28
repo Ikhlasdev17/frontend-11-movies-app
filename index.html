@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./styles/styles.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+
+  <div class='wrapper'>
+    <div class='wrapper-header'>
+      <form>
+        <input type="text" placeholder='Enter movie name:' required>
+      </form>
+      <button onclick='toggleBasketModal()' class='favourite-btn'>
+        <i class='bx bx-star'></i>
+        <span class='count'>0</span>
+      </button>
+    </div>
+    <div class="movies">
+      <!-- empty -->
+    </div>
+
+    <!-- basket movies -->
+    <div class='basket-movies active'>
+      <div class="basket-header">
+        <h1>Favourite movies</h1>
+        <button onclick='toggleBasketModal()'>
+          <i class='bx bx-x'></i>
+        </button>
+      </div>
+
+      <div class="basket-movies-content">
+        <!-- empty -->
+      </div>
+
+      <div class="emtpy-basket">
+        <h2>Favourite movies not found!</h2>
+        <h1>404</h1>
+      </div>
+    </div>
+  </div>
+
+  <script src='./js/script.js'></script>
+</body>
+
+</html>
